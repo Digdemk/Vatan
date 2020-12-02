@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\" />
+    <Content Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\.vs\ProjectSettings.json" />
+    <Content Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\.vs\startbootstrap-sb-admin-2-gh-pages\v16\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\.vs\slnx.sqlite" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +25,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
 </Project>

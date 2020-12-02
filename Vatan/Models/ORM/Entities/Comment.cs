@@ -22,7 +22,7 @@ namespace Vatan.Models.ORM.Entities
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
 
-        //asdsfs sdfksndf sdfknsdklf sdfknskf
+    
 
 
 

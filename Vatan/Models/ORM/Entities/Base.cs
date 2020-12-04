@@ -33,7 +33,14 @@ namespace Vatan.Models.ORM
                 tarih = value;
             }
         }
-        
+
+        //public bool IsDeleted { get; set; } = false;
+        //public DateTime AddDate { get; set; } = DateTime.Now;
+        //public DateTime UpdateDate { get; set; } = DateTime.Now;
+
+
+
+
 
     }
 }

@@ -19,6 +19,7 @@ namespace Vatan.Models.ORM.Entities
         public Category Category { get; set; }
 
         public List<Picture> Pictures { get; set; }
+        public List<Comment> Comments { get; set; }
 
     }
 }

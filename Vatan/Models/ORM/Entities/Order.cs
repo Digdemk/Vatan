@@ -11,12 +11,16 @@ namespace Vatan.Models.ORM.Entities
     {
         public DateTime Date { get; set; }
         public string Shipping { get; set; }
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+       
 
        
-        public List<Product> Products { get; set; }
+        public int ProductId { get; set; }
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
+
+        public int BasketId { get; set; }
+        [ForeignKey("BasketId")]
+        public Basket Basket { get; set; }
 
 
 

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Vatan.Models.ORM.Entities
 {
-    public class Picture : Base
+    public class Basket : Base
     {
-        
-        public string Path { get; set; }
-        public int ProductId { get; set; }
-        [ForeignKey ("ProductId")]
-        public Product Product { get; set; }
+        public List<Order> Orders { get; set; }
+        public int UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
     }
 }

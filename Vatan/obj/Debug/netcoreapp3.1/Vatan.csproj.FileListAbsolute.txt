@@ -144,3 +144,4 @@ C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Shar
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.RazorTargetAssemblyInfo.cs
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.Views.pdb
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs

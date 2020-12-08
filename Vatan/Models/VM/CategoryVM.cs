@@ -10,6 +10,7 @@ namespace Vatan.Models.VM
     public class CategoryVM
     {
         public int ID { get; set; }
+
         [Required(ErrorMessage ="Kategori adı boş geçilemez")]
         public string CategoryName { get; set; }
 

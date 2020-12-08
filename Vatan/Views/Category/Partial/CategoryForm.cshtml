@@ -1,0 +1,17 @@
+﻿@model Vatan.Models.VM.CategoryVM
+
+    <style>
+        .field-validation-error{
+            color:red
+        }
+    </style>
+
+    <div class="form-group">
+        @Html.LabelFor(q => q.CategoryName)
+        @Html.TextBoxFor(q => q.CategoryName, new { @placeholder = "Enter Category Name"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(q => q.TopCategoryID)
+        @Html.TextBoxFor(q => q.TopCategoryID, new { @placeholder = "Enter Top Category ID"})
+    </div>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Vatan.Models.ORM.Context;
 using Vatan.Models.ORM.Entities;
+using Vatan.Models.VM;
 
 namespace Vatan.Controllers
 {
@@ -25,6 +26,22 @@ namespace Vatan.Controllers
 
         public IActionResult Add()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(CategoryVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                Category category = new Category();
+                category.CategoryName = model.CategoryName;
+                category.TopCategoryID = model.TopCategoryID;
+
+                _vatancontext.Categories.Add(category);
+                _vatancontext.SaveChanges();
+            }
+
             return View();
         }
 

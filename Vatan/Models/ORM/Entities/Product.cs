@@ -12,14 +12,10 @@ namespace Vatan.Models.ORM.Entities
         public string Description { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
-
-        public int CategoryID { get; set; }
-
-        [ForeignKey("CategoryID")]
-        public Category Category { get; set; }
-
+        
         public List<Picture> Pictures { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<ProductCategory> ProductCategories { get; set; }
 
     }
 }

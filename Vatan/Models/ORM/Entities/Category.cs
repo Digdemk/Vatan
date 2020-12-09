@@ -10,7 +10,7 @@ namespace Vatan.Models.ORM.Entities
       
         public string CategoryName { get; set; }
         public int TopCategoryID { get; set; }
-        public List<Product> Products  { get; set; }
+        public List<ProductCategory> ProductCategories { get; set; }
 
 
 

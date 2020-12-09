@@ -20,6 +20,7 @@ namespace Vatan.Models.ORM.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Picture> Pictures { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
 
 

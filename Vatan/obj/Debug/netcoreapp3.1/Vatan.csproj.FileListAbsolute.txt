@@ -150,3 +150,7 @@ C:\Users\dgdm_\source\repos\Vatan\Vatan\bin\Debug\netcoreapp3.1\Npgsql.EntityFra
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Category\Add.cshtml.g.cs
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Category\Partial\CategoryForm.cshtml.g.cs
 C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Product\Partial\ProductForm.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Product\Add.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs

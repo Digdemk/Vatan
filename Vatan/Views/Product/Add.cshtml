@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Add</h1>
+
+@model Vatan.Models.VM.ProductVM
+
+<form action="/Product/Add" method="post">
+    @Html.ValidationSummary()
+
+    @await Html.PartialAsync("Partial/ProductForm")
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

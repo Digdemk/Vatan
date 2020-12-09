@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Vatan.Models.ORM.Context;
@@ -9,9 +10,10 @@ using Vatan.Models.ORM.Context;
 namespace Vatan.Migrations
 {
     [DbContext(typeof(VatanContext))]
-    partial class VatanContextModelSnapshot : ModelSnapshot
+    [Migration("20201209124419_add-migration Producttable")]
+    partial class addmigrationProducttable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

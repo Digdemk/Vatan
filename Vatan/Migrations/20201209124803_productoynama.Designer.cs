@@ -10,8 +10,8 @@ using Vatan.Models.ORM.Context;
 namespace Vatan.Migrations
 {
     [DbContext(typeof(VatanContext))]
-    [Migration("20201204080253_postredb")]
-    partial class postredb
+    [Migration("20201209124803_productoynama")]
+    partial class productoynama
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -178,7 +178,7 @@ namespace Vatan.Migrations
                     b.Property<DateTime>("AddDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int?>("CategoryID")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
@@ -201,6 +201,34 @@ namespace Vatan.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Vatan.Models.ORM.Entities.ProductCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<DateTime>("AddDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Isdeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("Vatan.Models.ORM.Entities.User", b =>
@@ -311,13 +339,28 @@ namespace Vatan.Migrations
 
             modelBuilder.Entity("Vatan.Models.ORM.Entities.Product", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.Category", "Category")
+                    b.HasOne("Vatan.Models.ORM.Entities.Category", null)
                         .WithMany("Products")
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("CategoryID");
+                });
+
+            modelBuilder.Entity("Vatan.Models.ORM.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("Vatan.Models.ORM.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Vatan.Models.ORM.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Vatan.Models.ORM.Entities.Basket", b =>
@@ -327,6 +370,8 @@ namespace Vatan.Migrations
 
             modelBuilder.Entity("Vatan.Models.ORM.Entities.Category", b =>
                 {
+                    b.Navigation("ProductCategories");
+
                     b.Navigation("Products");
                 });
 
@@ -335,6 +380,8 @@ namespace Vatan.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Pictures");
+
+                    b.Navigation("ProductCategories");
                 });
 
             modelBuilder.Entity("Vatan.Models.ORM.Entities.User", b =>

@@ -18,6 +18,8 @@ namespace Vatan.Models.VM
 
         public int TopCategoryID { get; set; }
 
+      public List<Category> categories { get; set; }
+
      
     }
 }

@@ -4,16 +4,29 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 @model Vatan.Models.VM.ProductVM
-<h1>Edit</h1>
-
-<form action="/Product/Edit" method="post">
-    @Html.ValidationSummary()
-
-    @await Html.PartialAsync("Partial/ProductForm")
-
-    @Html.HiddenFor(q => q.ID)
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Edit PRoduct</h4>
+                <p class="card-category">Edit a product</p>
+            </div>
+            <div class="card-body">
+                <form action="/Product/Edit" method="post">
+                    @Html.ValidationSummary()
+
+                    @await Html.PartialAsync("Partial/ProductForm")
+
+                    @Html.HiddenFor(q => q.ID)
+
+                    <button type="submit" class="btn btn-primary pull-right">Edit Author</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 

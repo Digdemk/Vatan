@@ -22,6 +22,6 @@ namespace Vatan.Models.VM
         [Required(ErrorMessage = "Ürün fiyatı boş geçilemez")]
         public double Price { get; set; }
         public List<Category> categories { get; set; }
-
+        public CategoryCheckVM[] categoryCheck { get; set; }
     }
 }

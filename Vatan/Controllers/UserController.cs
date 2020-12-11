@@ -1,0 +1,120 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Vatan.Models.ORM.Context;
+using Vatan.Models.ORM.Entities;
+using Vatan.Models.VM;
+
+namespace Vatan.Controllers
+{
+    public class UserController : Controller
+    {
+        private readonly VatanContext _vatancontext;
+
+        public UserController(VatanContext vatanContext)
+        {
+            _vatancontext = vatanContext;
+        }
+
+        public IActionResult Index()
+        {
+            List<UserVM> users = _vatancontext.Users.Where(q => q.Isdeleted == false).Select(q => new UserVM()
+            {
+                ID = q.ID,
+                Name = q.Name,
+                Surname = q.Surname,
+                Mail = q.Mail,
+                Phone = q.Phone,
+                Address = q.Address,
+                Password=q.Password,
+
+            }).ToList();
+
+            return View(users);
+        }
+        public IActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(UserVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                user.Mail = model.Mail;
+                user.Password = model.Password;
+                user.Address = model.Address;
+                user.Phone = model.Phone;
+
+                _vatancontext.Users.Add(user);
+                _vatancontext.SaveChanges();
+            }
+            else
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index", "User");
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            User user = _vatancontext.Users.FirstOrDefault(x => x.ID == id);
+
+            user.Isdeleted = true;
+
+            _vatancontext.SaveChanges();
+
+            return Json("User Successfully Deleted!");
+
+        }
+        public IActionResult Edit(int id)
+        {
+            UserVM model = _vatancontext.Users.Select(q => new UserVM()
+            {
+
+                ID = q.ID,
+                Name = q.Name,
+                Surname = q.Surname,
+                Mail = q.Mail,
+                Phone = q.Phone,
+                Address = q.Address,
+                Password = q.Password,
+
+            }).FirstOrDefault(x => x.ID == id);
+
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(UserVM model)
+        {
+            User user = _vatancontext.Users.FirstOrDefault(x => x.ID == model.ID);
+
+            if (ModelState.IsValid)
+            {
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                user.Mail = model.Mail;
+                user.Phone = model.Phone;
+                user.Password = model.Password;
+                user.Address = model.Address;
+
+                _vatancontext.SaveChanges();
+            }
+            else
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "User");
+        }
+    }
+}

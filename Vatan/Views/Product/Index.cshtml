@@ -5,22 +5,21 @@
 }
 @model List<Vatan.Models.VM.ProductVM>
 
-<h1>Index</h1>
 
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    @*<h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <p class="mb-4">
         DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
                                                                    href="https://datatables.net">official DataTables documentation</a>.
-    </p>
+    </p>*@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Product List</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -33,6 +32,7 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Category</th>
+                            <th>Detay</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -44,28 +44,34 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr id="@item.ID">
-                            <td>@item.ID</td>
-                            <td>@item.ProductName</td>
-                            <td>@item.Description</td>
-                            <td>@item.Quantity</td>
-                            <td>@item.Price</td>
-                            <td>
-                                @foreach (var item2 in item.categories)
-                                {
-                                    <span>@item2.CategoryName/</span>
-                                }
+                            <tr id="@item.ID">
+                                <td>@item.ID</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price</td>
 
-                        </td>
-                        <td>
-                            <a href="/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
-                        </td>
-                        <td>
+                                <td>
+                                    @foreach (var item2 in item.categories)
+                                    {
+                                        <span>@item2.CategoryName/</span>
+                                    }
 
-                            <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
-                        </td>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-primary detay" id="@item.ID">
+                                        <i class="material-icons">description</i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <a href="/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
+                                </td>
+                                <td>
 
-                        </tr>
+                                    <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
+                                </td>
+
+                            </tr>
                         }
 
                     </tbody>
@@ -74,6 +80,47 @@
         </div>
     </div>
 
+</div>
+<div class="modal fade" id="detailmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Author Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+           
+            <div class="modal-body">
+                <div>
+                    <span>Name:</span>
+                    <span id="Name"></span>
+                </div>
+                <div>
+                    <span>Surname:</span>
+                    <span id="Description"></span>
+                </div>
+                <div>
+                    <span>EMail:</span>
+                    <span id="Quantity"></span>
+                </div>
+                <div>
+                    <span>Phone:</span>
+                    <span id="Price"></span>
+                </div>
+             
+                <div>
+                    <span>Categories:</span>
+                    <ul id="categories">
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -100,5 +147,36 @@
                 alert("Product Deleting Failed!");
             }
         })
+    })
+
+
+
+
+    $(document).on("click", ".detay", function () {
+        let id = $(this).attr("id");
+        fetch("/Product/Detail/" + id)
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                $("#Name").html(result.productName);
+                $("#Description").html(result.description);
+                $("#Quantity").html(result.quantity);
+                $("#Price").html(result.price);
+          
+
+
+                $("#categories li").remove();
+
+                for (var i = 0; i < result.categories.length; i++) {
+
+
+                    $("#categories").append(`
+                          <li>`+ result.categories[i].categoryName + `</li>
+
+                         `);
+                }
+
+                $("#detailmodal").modal();
+            })
     })
 </script>

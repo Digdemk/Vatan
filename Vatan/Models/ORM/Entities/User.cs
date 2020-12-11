@@ -27,6 +27,7 @@ namespace Vatan.Models.ORM.Entities
         public string Address { get; set; }
 
         public List<Order> Orders { get; set; }
+       
 
     }
 }

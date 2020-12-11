@@ -28,7 +28,8 @@ namespace Vatan.Controllers
                 Description = q.Description,
                 Quantity = q.Quantity,
                 Price = q.Price,
-                categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
+                //categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
+                  categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList()
 
             }).ToList();
 
@@ -38,11 +39,17 @@ namespace Vatan.Controllers
         public IActionResult Add()
         {
             ProductVM model = new ProductVM();
-            model.categories = _vatancontext.Categories.ToList();
+            model.categoryCheck = _vatancontext.Categories.Select(q => new CategoryCheckVM()
+            {
+             
+            categoryid = q.ID,
+                IsChecked = false,
+                Name = q.CategoryName
+
+            }).ToArray();
 
             return View(model);
-
-        }
+    }
 
         [HttpPost]
         public IActionResult Add(ProductVM model, int[] categoryArray)
@@ -58,27 +65,39 @@ namespace Vatan.Controllers
                 _vatancontext.Products.Add(product);
                 _vatancontext.SaveChanges();
 
-                int ID = product.ID;
+              
+               
+                int authorid = product.ID;
 
-                foreach (var item in categoryArray)
+                model.categories = _vatancontext.Categories.ToList();
+                for (int i = 0; i < categoryArray.Length; i++)
                 {
-                    ProductCategory productCategory = new ProductCategory();
-                    productCategory.ProductId = ID;
-                    productCategory.CategoryId = item;
+                    ProductCategory productategory = new ProductCategory();
+                    productategory.CategoryId = categoryArray[i];
+                    productategory.ProductId = authorid;
+                    _vatancontext.ProductCategories.Add(productategory);
 
-                    _vatancontext.ProductCategories.Add(productCategory);
                 }
                 _vatancontext.SaveChanges();
 
 
-                return RedirectToAction("Index", "Product");
+
             }
 
             else
             {
-                return View();
+                model.categoryCheck = _vatancontext.Categories.Select(q => new CategoryCheckVM()
+                {
 
+                    categoryid = q.ID,
+                    IsChecked = false,
+                    Name = q.CategoryName
+
+                }).ToArray();
+
+                return View(model);
             }
+            return RedirectToAction("Index", "Product");
 
 
         }
@@ -97,20 +116,63 @@ namespace Vatan.Controllers
 
         public IActionResult Edit(int id)
         {
-            ProductVM model = _vatancontext.Products.Select(q => new ProductVM()
+            //ProductVM model = _vatancontext.Products.Select(q => new ProductVM()
+            //{
+            //    ID = q.ID,
+            //    ProductName = q.ProductName,
+            //    Description = q.Description,
+            //    Quantity = q.Quantity,
+            //    Price = q.Price,
+            //    categories = _vatancontext.Categories.ToList()
+
+
+            //}).FirstOrDefault(x => x.ID == id);
+
+            //return View(model);
+
+
+
+            Product author = _vatancontext.Products.FirstOrDefault(x => x.ID == id);
+            List<CategoryCheckVM> categoryChecks = new List<CategoryCheckVM>();
+
+            ProductVM model = new ProductVM();
+            model.ProductName = author.ProductName;
+            model.Description = author.Description;
+            model.Quantity = author.Quantity;
+            model.Price = author.Price;
+
+            model.categories = _vatancontext.Categories.ToList();
+            //model.categoryid = _newscontext.AuthorCategories.Where(q => q.AuthorID == id).Select(q => q.CategoryID).ToArray();
+            int[] selectedCategories = _vatancontext.ProductCategories.Where(q => q.Isdeleted == false).Where(q => q.ProductId == id).Select(q => q.CategoryId).ToArray();
+
+            foreach (var item in model.categories)
             {
-                ID = q.ID,
-                ProductName = q.ProductName,
-                Description = q.Description,
-                Quantity = q.Quantity,
-                Price = q.Price,
-                categories = _vatancontext.Categories.ToList()
+                CategoryCheckVM categoryCheck = new CategoryCheckVM();
+                categoryCheck.categoryid = item.ID;
 
 
-            }).FirstOrDefault(x => x.ID == id);
+                foreach (var item2 in selectedCategories)
+                {
+                    if (item2 == categoryCheck.categoryid)
+                    {
+                        categoryCheck.IsChecked = true;
+                        break;
+                    }
+                    else
+                    {
+                        categoryCheck.IsChecked = false;
+                    }
+
+                }
+
+                categoryCheck.Name = item.CategoryName;
+
+                categoryChecks.Add(categoryCheck);
+            }
+
+            model.categoryCheck = categoryChecks.ToArray();
 
             return View(model);
-
         }
 
         [HttpPost]
@@ -128,11 +190,11 @@ namespace Vatan.Controllers
 
                 _vatancontext.SaveChanges();
 
- 
+
                 List<ProductCategory> productCategory = _vatancontext.ProductCategories.Where(f => f.ProductId == model.ID).ToList();
                 productCategory.ForEach(a => a.Isdeleted = true);
                 _vatancontext.SaveChanges();
-                
+
 
                 foreach (var item in categoryArray)
                 {
@@ -157,6 +219,36 @@ namespace Vatan.Controllers
 
 
 
+        }
+        public IActionResult Detail(int id)
+        {
+           
+
+          
+
+            //Product author = _vatancontext.Products.Include(q => q.ProductCategories).ThenInclude(q => q.Category).FirstOrDefault(x => x.ID == id);
+            //ProductVM model = new ProductVM();
+          
+            //model.Price = author.Price;
+            //model.ProductName = author.ProductName;
+            //model.Quantity = author.Quantity;
+            //model.Description = author.Description;
+
+            //return Json(model);
+
+            ProductVM movies = _vatancontext.Products.Include(x => x.ProductCategories).Where(q => q.Isdeleted == false).Select(q => new ProductVM()
+            {
+                ID = q.ID,
+                ProductName = q.ProductName,
+                Description = q.Description,
+                Quantity = q.Quantity,
+                Price = q.Price,
+                //categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
+                categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList()
+
+            }).FirstOrDefault(q => q.ID == id);
+
+            return Json(movies);
         }
     }
 }

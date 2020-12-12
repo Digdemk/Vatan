@@ -10,11 +10,11 @@
 
     <!-- Page Heading -->
     @*<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>*@
+        <p class="mb-4">
+            DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                                                                       href="https://datatables.net">official DataTables documentation</a>.
+        </p>*@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -44,33 +44,33 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr id="@item.ID">
-                            <td>@item.ID</td>
-                            <td>@item.Name</td>
-                            <td>@item.Surname</td>
-                            <td>@item.Mail</td>
-                            <td>@item.Phone</td>
-                            <td>@item.Address</td>
-                            <td>@item.Password</td>
+                            <tr id="@item.ID">
+                                <td>@item.ID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.Mail</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>@item.Password</td>
 
-                            <td>
-                                <a href="/User/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
-                            </td>
-                            <td>
-
-
-                                <button class="btn btn-outline-primary detay" id="@item.ID">
-                                    <i class="material-icons">description</i>
-                                </button>
+                                <td>
+                                    <a href="/User/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
+                                </td>
+                                <td>
 
 
-                            </td>
-                            <td>
+                                    <button class="btn btn-outline-primary detay" id="@item.ID">
+                                        <i class="material-icons">description</i>
+                                    </button>
 
-                                <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
-                            </td>
 
-                        </tr>
+                                </td>
+                                <td>
+
+                                    <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
+                                </td>
+
+                            </tr>
                         }
 
                     </tbody>
@@ -94,14 +94,14 @@
             </div>
 
             <div class="modal-body">
-               
 
-               <h3>Silmek istediğinizden eminmisiniz?</h3>
+
+                <h3>Silmek istediğinizden eminmisiniz?</h3>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-secondary delete2"  data-dismiss="modal">Sil</button>
+                <button type="button" class="btn btn-secondary delete2" data-dismiss="modal">Sil</button>
             </div>
         </div>
     </div>
@@ -138,30 +138,32 @@
 
 
     $(document).on("click", ".delete", function () {
-        let id = $(this).attr("id")
-        $.ajax({
-            url: "/User/Delete",
-            type: "POST",
-            data: { id: id },
-            success: function (msg) {
-                alert(msg);
-                $("#" + id).fadeOut();
-            },
-            error: function (err) {
-                alert("Product Deleting Failed!");
-            }
-        })
-    })
+        var confirmation = confirm("are you sure you want to remove the item?");
+        if (confirmation) {
+            let id = $(this).attr("id")
+            $.ajax({
+                url: "/User/Delete",
 
+                type: "POST",
+                data: { id: id },
+                success: function (msg) {
+                    $("#" + id).fadeOut();
+                },
+                error: function (err) {
+                    alert("Product Deleting Failed!");
+                }
+            })
+        }
+    })
 
 
 
     $(document).on("click", ".detay", function () {
         let id = $(this).attr("id");
- 
-             
+
+
 
         $("#deletemodal").modal();
-            
+
     })
 </script>

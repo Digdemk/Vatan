@@ -314,3 +314,8 @@ C:\Users\User\Desktop\MVC\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\I
 C:\Users\User\Desktop\MVC\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Add.cshtml.g.cs
 C:\Users\User\Desktop\MVC\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Partial\UserForm.cshtml.g.cs
 C:\Users\User\Desktop\MVC\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Add.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\User\Partial\UserForm.cshtml.g.cs
+C:\Users\dgdm_\source\repos\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Comment\Index.cshtml.g.cs

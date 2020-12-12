@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Vatan.Models.ORM.Context;
@@ -29,7 +30,9 @@ namespace Vatan.Controllers
                 Quantity = q.Quantity,
                 Price = q.Price,
                 //categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
-                  categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList()
+                  categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList(),
+                //MainImagePath = _vatancontext.Pictures.FirstOrDefault(x => x.ProductId == q.ID).Path.ToString()
+
 
             }).ToList();
 
@@ -54,6 +57,34 @@ namespace Vatan.Controllers
         [HttpPost]
         public IActionResult Add(ProductVM model, int[] categoryArray)
         {
+            List<string> paths = new List<string>();
+
+
+            string imgpath = "";
+
+            if (model.productimages != null)
+            {
+                foreach (var item in model.productimages)
+                {
+
+                    var guid = Guid.NewGuid().ToString();
+
+                    var path = Path.Combine(
+                        Directory.GetCurrentDirectory(),
+                        "wwwroot/productimage", guid + ".jpg");
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        item.CopyTo(stream);
+                    }
+
+                    imgpath = guid + ".jpg";
+                    paths.Add(imgpath);
+                }
+
+            }
+
+            model.MainImagePath = paths;
+
             if (ModelState.IsValid)
             {
                 Product product = new Product();
@@ -79,6 +110,20 @@ namespace Vatan.Controllers
 
                 }
                 _vatancontext.SaveChanges();
+
+                int productid = product.ID;
+
+                foreach (var item in model.MainImagePath)
+                {
+                    Picture image = new Picture();
+                    image.Path = item;
+                    image.ProductId = productid;
+
+                    _vatancontext.Pictures.Add(image);
+                }
+
+                _vatancontext.SaveChanges();
+
 
 
 

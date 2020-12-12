@@ -26,7 +26,7 @@
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Password, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Password, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+            @Html.PasswordFor(q => q.Password, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname"})
             @Html.ValidationMessageFor(q => q.Password, "", new { @class = "text-danger" })
         </div>
     </div>

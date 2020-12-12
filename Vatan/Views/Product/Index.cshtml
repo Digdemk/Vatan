@@ -134,20 +134,27 @@
 
 <script>
     $(document).on("click", ".delete", function () {
-        let id = $(this).attr("id")
-        $.ajax({
-            url: "/Product/Delete",
-            type: "POST",
-            data: { id: id },
-            success: function (msg) {
-                alert(msg);
-                $("#" + id).fadeOut();
-            },
-            error: function (err) {
-                alert("Product Deleting Failed!");
-            }
-        })
+        var confirmation = confirm("are you sure you want to remove the item?");
+        if (confirmation) {
+            let id = $(this).attr("id")
+            $.ajax({
+                url: "/Product/Delete",
+                type: "POST",
+                data: { id: id },
+                success: function (msg) {
+                   
+                    $("#" + id).fadeOut();
+                },
+                error: function (err) {
+                    alert("Product Deleting Failed!");
+                }
+            })
+        }
+        
     })
+
+    
+
 
 
 

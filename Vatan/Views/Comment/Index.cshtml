@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-@model List<Vatan.Models.VM.CategoryVM>
+@model List<Vatan.Models.VM.CommentVM>
+<h1>Index</h1>
 
 <div class="container-fluid">
 
@@ -27,9 +28,11 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Top Category</th>
-                            <th>Edit</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Product Name</th>
+                            <th>User Name</th>
+                            <th>Date</th>
                             <th>Delete</th>
 
 
@@ -41,11 +44,13 @@
                         {
                             <tr id="@item.ID">
                                 <td>@item.ID</td>
-                                <td>@item.CategoryName</td>
-                                <td>@item.TopCategory</td>
-                                <td>
-                                    <a href="/Category/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
-                                </td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.UserName</td>
+                                <td>@item.AddDate</td>
+
+
                                 <td>
 
                                     <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
@@ -77,14 +82,14 @@
         if (confirmation) {
             let id = $(this).attr("id")
             $.ajax({
-                url: "/Category/Delete",
+                url: "/Comment/Delete",
                 type: "POST",
                 data: { id: id },
                 success: function (msg) {
                     $("#" + id).fadeOut();
                 },
                 error: function (err) {
-                    alert("Category Deleting Failed!");
+                    alert("Comment Deleting Failed!");
                 }
             })
         }

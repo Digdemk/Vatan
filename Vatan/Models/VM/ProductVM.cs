@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,5 +24,8 @@ namespace Vatan.Models.VM
         public double Price { get; set; }
         public List<Category> categories { get; set; }
         public CategoryCheckVM[] categoryCheck { get; set; }
+        public List<IFormFile> productimages { get; set; }
+        public List<string> MainImagePath { get; set; }
+
     }
 }

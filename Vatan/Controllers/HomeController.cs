@@ -25,8 +25,8 @@ namespace Vatan.Controllers
         
 
             ViewBag.TotalUser = _vatancontext.Users.Count();
-            ViewBag.TotalAuthor = _vatancontext.Categories.Count();
-            ViewBag.TotalArticle = _vatancontext.Products.Count();
+            ViewBag.TotalCategory = _vatancontext.Categories.Count();
+            ViewBag.TotalProduct = _vatancontext.Products.Count();
             return View(charts);
         }
     }

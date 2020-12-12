@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\productimage\" />
     <Folder Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\.vs\startbootstrap-sb-admin-2-gh-pages\v16\" />
   </ItemGroup>
 

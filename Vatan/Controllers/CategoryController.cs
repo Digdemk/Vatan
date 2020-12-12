@@ -24,7 +24,8 @@ namespace Vatan.Controllers
                 ID = q.ID,
                 CategoryName = q.CategoryName,
                 TopCategoryID= q.TopCategoryID,
-         
+                TopCategory= _vatancontext.Categories.FirstOrDefault(x => x.ID == q.TopCategoryID).CategoryName
+
 
             }).ToList();
             return View(model);
@@ -50,8 +51,13 @@ namespace Vatan.Controllers
                 _vatancontext.Categories.Add(category);
                 _vatancontext.SaveChanges();
             }
-
-            return View();
+            else
+            {
+                return View();
+            }
+            return RedirectToAction("Index", "Category");
+       
+           
         }
 
         public IActionResult Edit(int id)
@@ -83,7 +89,12 @@ namespace Vatan.Controllers
                 _vatancontext.SaveChanges();
 
             }
-            return View();
+            else
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Category");
 
 
         }

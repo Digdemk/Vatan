@@ -5,14 +5,11 @@
 }
 @model Vatan.Models.VM.HomeVM
 
-<div class="row">
+<div class="row" style="margin-bottom:20px">
     <div class="col-md-3">
         <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
-                <div class="card-icon">
-                    <i class="material-icons">person</i>
-                </div>
-                <p class="card-category">Total</p>
+
                 <h3 class="card-title">
                     @ViewBag.TotalUser
                     <small>Users</small>
@@ -23,13 +20,10 @@
     <div class="col-md-3">
         <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
-                <div class="card-icon">
-                    <i class="material-icons">local_library</i>
-                </div>
-                <p class="card-category">Total</p>
+
                 <h3 class="card-title">
-                    @ViewBag.TotalAuthor
-                    <small>Authors</small>
+                    @ViewBag.TotalCategory
+                    <small>Categorys</small>
                 </h3>
             </div>
         </div>
@@ -37,19 +31,17 @@
     <div class="col-md-3">
         <div class="card card-stats">
             <div class="card-header card-header-primary card-header-icon">
-                <div class="card-icon">
-                    <i class="material-icons">menu_book</i>
-                </div>
-                <p class="card-category">Total Articles</p>
+
                 <h3 class="card-title">
-                    @ViewBag.TotalArticle
-                    <small>Published</small>
+                    @ViewBag.TotalProduct
+                    <small>Products</small>
                 </h3>
             </div>
         </div>
     </div>
 </div>
-<div class="row">
+
+<div class="row" style="margin-bottom:20px">
     <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="card-header card-header-warning">
@@ -63,7 +55,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Top Category</th>
-                        
+
 
 
                         </tr>
@@ -75,7 +67,7 @@
                                 <td>@item.ID</td>
                                 <td>@item.CategoryName</td>
                                 <td>@item.TopCategoryID</td>
-                              
+
 
                             </tr>
                         }
@@ -101,19 +93,19 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Category</th>
-                        
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.Products)
                         {
-                        <tr class="text-center">
-                            <td>@item.ID</td>
-                            <td>@item.ProductName</td>
-                            <td>@item.Description</td>
-                            <td>@item.Quantity</td>
-                            <td>@item.Price</td>
-                        </tr>
+                            <tr class="text-center">
+                                <td>@item.ID</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price</td>
+                            </tr>
                         }
 
                     </tbody>
@@ -148,17 +140,17 @@
                     <tbody>
                         @foreach (var item in Model.Users)
                         {
-                        <tr class="text-center">
-                            <td>@item.ID</td>
-                            <td>@item.Name</td>
-                            <td>@item.Surname</td>
-                            <td>@item.Mail</td>
-                            <td>@item.Phone</td>
-                            <td>@item.Address</td>
-                            <td>@item.Password</td>
-                            @*<td>@item.AuthorID</td>*@
-                            @*<td>@item.CategoryID</td>*@
-                        </tr>
+                            <tr class="text-center">
+                                <td>@item.ID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.Mail</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>@item.Password</td>
+                                @*<td>@item.AuthorID</td>*@
+                                @*<td>@item.CategoryID</td>*@
+                            </tr>
                         }
 
                     </tbody>
@@ -166,6 +158,6 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 

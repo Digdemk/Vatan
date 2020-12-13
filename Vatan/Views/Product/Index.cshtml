@@ -10,11 +10,11 @@
 
     <!-- Page Heading -->
     @*<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>*@
+        <p class="mb-4">
+            DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                                                                       href="https://datatables.net">official DataTables documentation</a>.
+        </p>*@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -32,7 +32,7 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Category</th>
-                            @*<th>Detay</th>*@
+                            <th>Detay</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -58,11 +58,11 @@
                                     }
 
                                 </td>
-                                @*<td>
-                                    <button class="btn btn-outline-primary detay" id="@item.ID">
-                                        <i class="material-icons">description</i>
-                                    </button>
-                                </td>*@
+                                <td>
+                                        <button class="btn btn-outline-primary detay" id="@item.ID">
+                                            <i class="material-icons">description</i>
+                                        </button>
+                                    </td>
                                 <td>
                                     <a href="/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
                                 </td>
@@ -90,7 +90,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-           
+
             <div class="modal-body">
                 <div>
                     <span>Name:</span>
@@ -108,7 +108,7 @@
                     <span>Phone:</span>
                     <span id="Price"></span>
                 </div>
-             
+
                 <div>
                     <span>Categories:</span>
                     <ul id="categories">
@@ -142,7 +142,7 @@
                 type: "POST",
                 data: { id: id },
                 success: function (msg) {
-                   
+
                     $("#" + id).fadeOut();
                 },
                 error: function (err) {
@@ -150,10 +150,10 @@
                 }
             })
         }
-        
+
     })
 
-    
+
 
 
 
@@ -169,7 +169,7 @@
                 $("#Description").html(result.description);
                 $("#Quantity").html(result.quantity);
                 $("#Price").html(result.price);
-          
+
 
 
                 $("#categories li").remove();

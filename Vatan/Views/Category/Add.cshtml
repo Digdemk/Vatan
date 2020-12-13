@@ -19,7 +19,7 @@
             <div class="card-body">
                 <form action="/Category/Add" method="post">
 
-                    @Html.ValidationSummary()
+                    @*@Html.ValidationSummary()*@
                     @await Html.PartialAsync("Partial/CategoryForm")
 
                     <button type="submit" class="btn btn-primary pull-right">Add Author</button>

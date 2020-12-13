@@ -5,49 +5,49 @@
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Name, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Name, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+            @Html.TextBoxFor(q => q.Name, new { @placeholder = "First Name *", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.Name, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Surname, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+            @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Last Name * ", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.Surname, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Mail, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Mail, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname", @type = "email" })
+            @Html.TextBoxFor(q => q.Mail, new { @placeholder = "Your Email *", @class = "form-control", @id = "fname", @type = "email" })
             @Html.ValidationMessageFor(q => q.Mail, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Password, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.PasswordFor(q => q.Password, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname"})
+            @Html.PasswordFor(q => q.Password, new { @placeholder = "Password *", @class = "form-control", @id = "fname"})
             @Html.ValidationMessageFor(q => q.Password, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.ConfirmPassword, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.ConfirmPassword, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+            @Html.PasswordFor(q => q.ConfirmPassword, new { @placeholder = "Confirm Password *", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Phone, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Phone, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname", @type = "phone" })
+            @Html.TextBoxFor(q => q.Phone, new { @placeholder = "Your Phone Number *", @class = "form-control", @id = "fname", @type = "phone" })
             @Html.ValidationMessageFor(q => q.Phone, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Address, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextAreaFor(q => q.Address, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+            @Html.TextAreaFor(q => q.Address, new { @placeholder = "Enter Your Address * ", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.Address, "", new { @class = "text-danger" })
         </div>
     </div>

@@ -5,14 +5,14 @@
         <div class="col-md-12">
             <div class="form-group">
                 @Html.LabelFor(q => q.CategoryName, new { @class = "col-sm-3 text-left control-label col-form-label" })
-                @Html.TextBoxFor(q => q.CategoryName, new { @placeholder = "Enter CategoryName name", @class = "form-control", @id = "fname" })
+                @Html.TextBoxFor(q => q.CategoryName, new { @placeholder = "Enter Category Name *", @class = "form-control", @id = "fname" })
                 @Html.ValidationMessageFor(q => q.CategoryName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 @Html.LabelFor(q => q.TopCategoryID)
-                @Html.TextBoxFor(q => q.TopCategoryID, new { @placeholder = "Enter TopCategoryID name", @class = "form-control", @id = "TopCategoryID" })
+                @Html.TextBoxFor(q => q.TopCategoryID, new { @placeholder = "Enter Top CategoryID *", @class = "form-control", @id = "TopCategoryID" })
                 @Html.ValidationMessageFor(q => q.TopCategoryID, "", new { @class = "text-danger" })
             </div>
         </div>

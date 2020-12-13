@@ -31,7 +31,7 @@ namespace Vatan.Controllers
                 Price = q.Price,
                 //categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
                   categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList(),
-                //MainImagePath = _vatancontext.Pictures.FirstOrDefault(x => x.ProductId == q.ID).Path.ToString()
+                //MainImagePath = _vatancontext.Pictures.FirstOrDefault(y => y.ProductId == x.ID).Path
 
 
             }).ToList();

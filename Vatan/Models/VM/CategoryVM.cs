@@ -11,10 +11,12 @@ namespace Vatan.Models.VM
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage ="Kategori adı boş geçilemez")]
+        [Required(ErrorMessage ="Category Name is required!")]
+        [Display(Name = "Category Name")]
         public string CategoryName { get; set; }
 
-        [Required(ErrorMessage = " Üst Kategori boş geçilemez")]
+        [Required(ErrorMessage = "Top Category ID is required!")]
+        [Display(Name = "Top Category ID")]
 
         public int TopCategoryID { get; set; }
 

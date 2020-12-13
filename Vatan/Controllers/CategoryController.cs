@@ -34,19 +34,23 @@ namespace Vatan.Controllers
 
         public IActionResult Add()
         {
-            
-            return View();
+            CategoryVM model = new CategoryVM();
+            model.categories = _vatancontext.Categories.ToList();
+        
+            return View(model);
+
+         
         }
     
 
         [HttpPost]
-        public IActionResult Add(CategoryVM model)
+        public IActionResult Add(CategoryVM model, int categoryid)
         {
             if (ModelState.IsValid)
             {
                 Category category = new Category();
                 category.CategoryName = model.CategoryName;
-                category.TopCategoryID = model.TopCategoryID;
+                category.TopCategoryID = categoryid;
 
                 _vatancontext.Categories.Add(category);
                 _vatancontext.SaveChanges();
@@ -62,12 +66,15 @@ namespace Vatan.Controllers
 
         public IActionResult Edit(int id)
         {
+
+
             CategoryVM model = _vatancontext.Categories.Select(q => new CategoryVM()
             {
                 ID = q.ID,
                 CategoryName = q.CategoryName,
-                TopCategoryID = q.TopCategoryID,
-              
+
+                categories = _vatancontext.Categories.ToList()
+
 
             }).FirstOrDefault(x => x.ID == id);
 
@@ -76,7 +83,7 @@ namespace Vatan.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(CategoryVM model)
+        public IActionResult Edit(CategoryVM model, int categoryid)
         {
             Category category = _vatancontext.Categories.FirstOrDefault(x => x.ID == model.ID);
 
@@ -84,7 +91,7 @@ namespace Vatan.Controllers
             {
                 category.CategoryName = model.CategoryName;
         
-                category.TopCategoryID = model.TopCategoryID;
+                category.TopCategoryID = categoryid;
 
                 _vatancontext.SaveChanges();
 

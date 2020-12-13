@@ -267,13 +267,13 @@ namespace Vatan.Controllers
         }
         public IActionResult Detail(int id)
         {
-           
 
-          
+
+
 
             //Product author = _vatancontext.Products.Include(q => q.ProductCategories).ThenInclude(q => q.Category).FirstOrDefault(x => x.ID == id);
             //ProductVM model = new ProductVM();
-          
+
             //model.Price = author.Price;
             //model.ProductName = author.ProductName;
             //model.Quantity = author.Quantity;

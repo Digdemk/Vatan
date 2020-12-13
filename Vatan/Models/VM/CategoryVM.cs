@@ -17,6 +17,7 @@ namespace Vatan.Models.VM
         [Required(ErrorMessage = " Üst Kategori boş geçilemez")]
 
         public int TopCategoryID { get; set; }
+        
 
       public List<Category> categories { get; set; }
         public string TopCategory { get; set; }

@@ -17,10 +17,11 @@ namespace Vatan.Models.VM
         public string Title { get; set; }
 
         [Required(ErrorMessage = "User Name boş geçilemez")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Product Name boş geçilemez")]
-
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
         public DateTime AddDate { get; set; }
         public List<User> users { get; set; }

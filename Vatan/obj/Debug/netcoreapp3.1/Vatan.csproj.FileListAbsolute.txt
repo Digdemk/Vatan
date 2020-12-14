@@ -480,6 +480,7 @@ C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.Views.pdb
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.csproj.CopyComplete
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\bin\Debug\netcoreapp3.1\Vatan.exe
@@ -641,3 +642,5 @@ C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\net
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\netcoreapp3.1\Vatan.dll
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\netcoreapp3.1\Vatan.pdb
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
+=======
+>>>>>>> a62cc9af49e8b23fc734c47a70c02ad2af73eb37

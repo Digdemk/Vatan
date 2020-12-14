@@ -15,7 +15,6 @@ namespace Vatan.Models.ORM.Entities
         public string Surname { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]

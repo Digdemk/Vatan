@@ -12,7 +12,7 @@ namespace Vatan.Models.VM
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Product Name is required!")]
+        [Required(ErrorMessage = "Product Name is required")]
         public string ProductName { get; set; }
 
         [Required(ErrorMessage = "Description is required!")]

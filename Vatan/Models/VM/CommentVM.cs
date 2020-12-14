@@ -12,16 +12,19 @@ namespace Vatan.Models.VM
         public int ID { get; set; }
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Title boş geçilemez")]
+        [Required(ErrorMessage = "Title is required!")]
 
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "User Name boş geçilemez")]
+        [Required(ErrorMessage = "User Name is required!")]
         [Display(Name = "User Name")]
+
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Product Name boş geçilemez")]
+        [Required(ErrorMessage = "Product Name is required!")]
         [Display(Name = "Product Name")]
+
+
         public string ProductName { get; set; }
         public DateTime AddDate { get; set; }
         public List<User> users { get; set; }

@@ -12,7 +12,7 @@
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.Surname, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Enter Your Last Name * ", @class = "form-control", @id = "fname" })
+            @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Enter Your Last Name *", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.Surname, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="col-md-12">
         <div class="form-group">
             @Html.LabelFor(q => q.ConfirmPassword, new { @class = "col-sm-3 text-left control-label col-form-label" })
-            @Html.PasswordFor(q => q.ConfirmPassword, new { @placeholder = "Confirm Your Password *", @class = "form-control", @id = "fname" })
+            @Html.TextBoxFor(q => q.ConfirmPassword, new { @placeholder = "Confirm Your Password *", @class = "form-control", @id = "fname" })
             @Html.ValidationMessageFor(q => q.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
     </div>

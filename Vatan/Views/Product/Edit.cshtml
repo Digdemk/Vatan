@@ -11,12 +11,12 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Edit PRoduct</h4>
+                <h4 class="card-title">Edit Product</h4>
                 <p class="card-category">Edit a product</p>
             </div>
             <div class="card-body">
                 <form action="/Product/Edit" method="post">
-                    @Html.ValidationSummary()
+                    @*@Html.ValidationSummary()*@
 
                     @await Html.PartialAsync("Partial/ProductForm")
 

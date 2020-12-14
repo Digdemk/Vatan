@@ -5,15 +5,27 @@
         <div class="col-md-12">
             <div class="form-group">
                 @Html.LabelFor(q => q.CategoryName, new { @class = "col-sm-3 text-left control-label col-form-label" })
-                @Html.TextBoxFor(q => q.CategoryName, new { @placeholder = "Enter Category Name *", @class = "form-control", @id = "fname" })
+                @Html.TextBoxFor(q => q.CategoryName, new { @placeholder = "Enter Category Name", @class = "form-control", @id = "fname" })
                 @Html.ValidationMessageFor(q => q.CategoryName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                @Html.LabelFor(q => q.TopCategoryID)
-                @Html.TextBoxFor(q => q.TopCategoryID, new { @placeholder = "Enter Top CategoryID *", @class = "form-control", @id = "TopCategoryID" })
-                @Html.ValidationMessageFor(q => q.TopCategoryID, "", new { @class = "text-danger" })
+                @*@Html.LabelFor(q => q.TopCategoryID)
+        @Html.TextBoxFor(q => q.TopCategoryID, new { @placeholder = "Enter TopCategoryID name", @class = "form-control", @id = "TopCategoryID" })
+        @Html.ValidationMessageFor(q => q.TopCategoryID, "", new { @class = "text-danger" })*@
+             
+                
+                        <label for="Categories">Categories</label>
+                        <select class="form-control selectpicker" data-style="btn btn-link" name="categoryid" id="Categories">
+
+                            @foreach (var item in Model.categories)
+                            {
+                                <option value="@item.ID">@item.CategoryName</option>
+                            }
+
+                        </select>
+                    
             </div>
         </div>
       

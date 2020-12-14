@@ -13,12 +13,14 @@ namespace Vatan.Models.VM
 
         [Required(ErrorMessage ="Category Name is required!")]
         [Display(Name = "Category Name")]
+
         public string CategoryName { get; set; }
 
-        [Required(ErrorMessage = "Top Category ID is required!")]
-        [Display(Name = "Top Category ID")]
+        [Required(ErrorMessage = " Top Category ID is required!")]
+
 
         public int TopCategoryID { get; set; }
+        
 
       public List<Category> categories { get; set; }
         public string TopCategory { get; set; }

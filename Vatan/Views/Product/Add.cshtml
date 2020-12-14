@@ -18,11 +18,11 @@
                 <form action="/Product/Add" method="post" enctype="multipart/form-data"
 >
 
-                    @Html.ValidationSummary()
+                    @*@Html.ValidationSummary()*@
 
                     @await Html.PartialAsync("Partial/ProductForm")
 
-                    <button type="submit" class="btn btn-primary pull-right">Add Author</button>
+                    <button type="submit" class="btn btn-primary pull-right">Add Product</button>
                     <div class="clearfix"></div>
                 </form>
             </div>

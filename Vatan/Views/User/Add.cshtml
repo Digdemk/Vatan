@@ -19,10 +19,10 @@
             <div class="card-body">
                 <form action="/User/Add" method="post">
 
-                    @Html.ValidationSummary()
+                    @*@Html.ValidationSummary()*@
                     @await Html.PartialAsync("Partial/UserForm")
 
-                    <button type="submit" class="btn btn-primary pull-right">Add Author</button>
+                    <button type="submit" class="btn btn-primary pull-right">Add User</button>
                     <div class="clearfix"></div>
                 </form>
             </div>

@@ -12,15 +12,15 @@ namespace Vatan.Models.VM
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Ürün adı boş geçilemez")]
+        [Required(ErrorMessage = "Product Name is required")]
         public string ProductName { get; set; }
 
-        [Required(ErrorMessage = "Ürün açıklaması boş geçilemez")]
+        [Required(ErrorMessage = "Description is required!")]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Ürün adedi boş geçilemez")]
+        [Required(ErrorMessage = "Quantity can not be null!")]
         public int Quantity { get; set; }
 
-        [Required(ErrorMessage = "Ürün fiyatı boş geçilemez")]
+        [Required(ErrorMessage = "Price can not be null!")]
         public double Price { get; set; }
         public List<Category> categories { get; set; }
         public CategoryCheckVM[] categoryCheck { get; set; }

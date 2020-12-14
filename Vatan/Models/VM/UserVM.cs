@@ -9,12 +9,14 @@ namespace Vatan.Models.VM
     public class UserVM
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Please fill required areas!")]
+        [Required(ErrorMessage = "Please enter your first name!")]
+        [Display(Name = "First Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Please fill required areas!")]
+        [Required(ErrorMessage = "Please enter your last name!")]
+        [Display(Name = "Last Name")]
         public string Surname { get; set; }
 
-        [Required(ErrorMessage = "Please fill required areas!")]
+        [Required(ErrorMessage = "Please enter your Email address!")]
         [DataType(DataType.EmailAddress)]
         public string Mail { get; set; }
 
@@ -29,10 +31,10 @@ namespace Vatan.Models.VM
         [Compare("Password", ErrorMessage = ("Please enter the same password!"))]
         public string ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "Please confirm your password!")]
+        [Required(ErrorMessage = "Please enter your phone number!")]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage = "Please confirm your password!")]
+        [Required(ErrorMessage = "Please enter your address!")]
         public string Address { get; set; }
 
 

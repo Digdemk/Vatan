@@ -44,7 +44,15 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr id="@item.ID">
+
+                        <tr id="@item.ID">
+                            <td>
+                                @foreach (var item2 in item.MainImagePath)
+                                {
+                                    <img width="200" height="100" src="/productimage/@item2" alt="Alternate Text" />
+                                }
+                            </td>
+
                                 <td>@item.ID</td>
                                 <td>@item.ProductName</td>
                                 <td>@item.Description</td>

@@ -22,16 +22,16 @@ namespace Vatan.Controllers
 
         public IActionResult Index()
         {
-            List<ProductVM> movies = _vatancontext.Products.Include(x => x.ProductCategories).Where(q => q.Isdeleted == false).Select(q => new ProductVM()
+            List<ProductVM> movies = _vatancontext.Products.Include(x => x.ProductCategories).Include(q => q.Pictures).Where(q => q.Isdeleted == false).Select(q => new ProductVM()
             {
                 ID = q.ID,
                 ProductName = q.ProductName,
                 Description = q.Description,
                 Quantity = q.Quantity,
                 Price = q.Price,
-                //categories = q.ProductCategories.Where(a => a.Isdeleted == false).Select(q => q.Category).ToList()
+                
                   categories = q.ProductCategories.Where(q => q.Isdeleted == false).Select(q => q.Category).ToList(),
-                //MainImagePath = _vatancontext.Pictures.FirstOrDefault(x => x.ProductId == q.ID).Path.ToString()
+                MainImagePath = q.Pictures.Select(q => q.Path).ToList()
 
 
             }).ToList();

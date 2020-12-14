@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+@model List<Vatan.Areas.Admin.Models.VM.ProductVM>
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    @*<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>*@
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Product List</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Detay</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                        <tr id="@item.ID">
+                            <td>
+                                @foreach (var item2 in item.MainImagePath)
+                                {
+                                    <img width="200" height="100" src="../../productimage/@item2" alt="Alternate Text" />
+                                }
+                            </td>
+
+                                <td>@item.ID</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price</td>
+
+                                <td>
+                                    @foreach (var item2 in item.categories)
+                                    {
+                                        <span>@item2.CategoryName/</span>
+                                    }
+
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-primary detay" id="@item.ID">
+                                        <i class="material-icons">description</i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <a href="/Admin/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
+                                </td>
+                                <td>
+
+                                    <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="detailmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Author Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+           
+            <div class="modal-body">
+                <div>
+                    <span>Name:</span>
+                    <span id="Name"></span>
+                </div>
+                <div>
+                    <span>Surname:</span>
+                    <span id="Description"></span>
+                </div>
+                <div>
+                    <span>EMail:</span>
+                    <span id="Quantity"></span>
+                </div>
+                <div>
+                    <span>Phone:</span>
+                    <span id="Price"></span>
+                </div>
+             
+                <div>
+                    <span>Categories:</span>
+                    <ul id="categories">
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Page level plugins -->
+<script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../../js/demo/datatables-demo.js"></script>
+
+
+<script>
+    $(document).on("click", ".delete", function () {
+        var confirmation = confirm("are you sure you want to remove the item?");
+        if (confirmation) {
+            let id = $(this).attr("id")
+            $.ajax({
+                url: "/Admin/Product/Delete",
+                type: "POST",
+                data: { id: id },
+                success: function (msg) {
+                   
+                    $("#" + id).fadeOut();
+                },
+                error: function (err) {
+                    alert("Product Deleting Failed!");
+                }
+            })
+        }
+        
+    })
+
+    
+
+
+
+
+
+    $(document).on("click", ".detay", function () {
+        let id = $(this).attr("id");
+        fetch("/Admin/Product/Detail/" + id)
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                $("#Name").html(result.productName);
+                $("#Description").html(result.description);
+                $("#Quantity").html(result.quantity);
+                $("#Price").html(result.price);
+          
+
+
+                $("#categories li").remove();
+
+                for (var i = 0; i < result.categories.length; i++) {
+
+
+                    $("#categories").append(`
+                          <li>`+ result.categories[i].categoryName + `</li>
+
+                         `);
+                }
+
+                $("#detailmodal").modal();
+            })
+    })
+</script>

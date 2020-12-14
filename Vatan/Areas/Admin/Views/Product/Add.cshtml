@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@model Vatan.Areas.Admin.Models.VM.ProductVM
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Add Product</h4>
+                <p class="card-category">Create a product</p>
+            </div>
+            <div class="card-body">
+                <form action="/Admin/Product/Add" method="post" enctype="multipart/form-data">
+
+                    @*@Html.ValidationSummary()*@
+
+                    @await Html.PartialAsync("Partial/ProductForm")
+
+                    <button type="submit" class="btn btn-primary pull-right">Add Product</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*<form action="/Product/Add" method="post">
+        @Html.ValidationSummary()
+
+        @await Html.PartialAsync("Partial/ProductForm")
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>*@

@@ -9,7 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Vatan.Models.ORM.Context;
+using Vatan.Areas.Admin.Models.ORM.Context;
+
 
 namespace Vatan
 {
@@ -43,9 +44,21 @@ options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+               name: "areas",
+               pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute("default",
                     "/{Controller=Home}/{action=Index}/{id?}");
+            
+
+
+
             });
+            //app.UseEndpoints(endpoints =>
+            //{
+               
+            //});
         }
     }
 }

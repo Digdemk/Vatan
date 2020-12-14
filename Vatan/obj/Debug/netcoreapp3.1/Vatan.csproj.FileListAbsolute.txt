@@ -644,3 +644,18 @@ C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\net
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan-master\Vatan-master\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
 =======
 >>>>>>> a62cc9af49e8b23fc734c47a70c02ad2af73eb37
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Add.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Edit.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Partial\CategoryForm.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Comment\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Add.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Edit.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Partial\ProductForm.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\AdminLayout.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Add.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Edit.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Partial\UserForm.cshtml.g.cs

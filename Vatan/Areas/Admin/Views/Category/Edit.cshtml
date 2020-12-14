@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+@model Vatan.Areas.Admin.Models.VM.CategoryVM
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Edit Category</h4>
+                <p class="card-category">Edit a category</p>
+            </div>
+            <div class="card-body">
+                <form action="/Admin/Category/Edit" method="post">
+
+                    @await Html.PartialAsync("Partial/CategoryForm")
+
+                    @Html.HiddenFor(q => q.ID)
+
+                    <button type="submit" class="btn btn-primary pull-right">Edit Category</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*<form action="/Category/Edit" method="post">
+        @Html.ValidationSummary()
+
+        @await Html.PartialAsync("Partial/CategoryForm")
+
+        @Html.HiddenFor(q => q.ID)
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>*@
+

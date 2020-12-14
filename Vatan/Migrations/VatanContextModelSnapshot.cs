@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Vatan.Models.ORM.Context;
+using Vatan.Areas.Admin.Models.ORM.Context;
 
 namespace Vatan.Migrations
 {
@@ -19,7 +19,7 @@ namespace Vatan.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Basket", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Basket", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace Vatan.Migrations
                     b.ToTable("Basket");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Category", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Category", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace Vatan.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Comment", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Comment", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -101,7 +101,7 @@ namespace Vatan.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Order", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Order", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace Vatan.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Picture", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Picture", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -166,7 +166,7 @@ namespace Vatan.Migrations
                     b.ToTable("Pictures");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Product", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Product", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -175,9 +175,6 @@ namespace Vatan.Migrations
 
                     b.Property<DateTime>("AddDate")
                         .HasColumnType("timestamp without time zone");
-
-                    b.Property<int?>("CategoryID")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -196,12 +193,10 @@ namespace Vatan.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("CategoryID");
-
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.ProductCategory", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.ProductCategory", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -229,7 +224,7 @@ namespace Vatan.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.User", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -271,9 +266,9 @@ namespace Vatan.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Basket", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Basket", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.User", "User")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -282,15 +277,15 @@ namespace Vatan.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Comment", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Comment", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.Product", "Product")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Product", "Product")
                         .WithMany("Comments")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Vatan.Models.ORM.Entities.User", "User")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -301,21 +296,21 @@ namespace Vatan.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Order", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Order", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.Basket", "Basket")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Basket", "Basket")
                         .WithMany("Orders")
                         .HasForeignKey("BasketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Vatan.Models.ORM.Entities.Product", "Product")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Vatan.Models.ORM.Entities.User", null)
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.User", null)
                         .WithMany("Orders")
                         .HasForeignKey("UserID");
 
@@ -324,9 +319,9 @@ namespace Vatan.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Picture", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Picture", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.Product", "Product")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Product", "Product")
                         .WithMany("Pictures")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -335,22 +330,15 @@ namespace Vatan.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Product", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("Vatan.Models.ORM.Entities.Category", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryID");
-                });
-
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.ProductCategory", b =>
-                {
-                    b.HasOne("Vatan.Models.ORM.Entities.Category", "Category")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Category", "Category")
                         .WithMany("ProductCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Vatan.Models.ORM.Entities.Product", "Product")
+                    b.HasOne("Vatan.Areas.Admin.Models.ORM.Entities.Product", "Product")
                         .WithMany("ProductCategories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -361,19 +349,17 @@ namespace Vatan.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Basket", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Basket", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Category", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Category", b =>
                 {
                     b.Navigation("ProductCategories");
-
-                    b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.Product", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Product", b =>
                 {
                     b.Navigation("Comments");
 
@@ -382,7 +368,7 @@ namespace Vatan.Migrations
                     b.Navigation("ProductCategories");
                 });
 
-            modelBuilder.Entity("Vatan.Models.ORM.Entities.User", b =>
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.User", b =>
                 {
                     b.Navigation("Orders");
                 });

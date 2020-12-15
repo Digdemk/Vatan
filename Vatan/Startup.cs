@@ -26,9 +26,16 @@ namespace Vatan
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            services.AddRazorPages();
             services.AddDbContext<VatanContext>(options =>
-options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,21 +51,21 @@ options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-               name: "areas",
-               pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                   name: "Admin",
+                   areaName: "Admin",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                   );
+                endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
+                endpoints.MapRazorPages();
 
-                endpoints.MapControllerRoute("default",
-                    "/{Controller=Home}/{action=Index}/{id?}");
-            
+                
+
 
 
 
             });
-            //app.UseEndpoints(endpoints =>
-            //{
-               
-            //});
+        
         }
     }
 }

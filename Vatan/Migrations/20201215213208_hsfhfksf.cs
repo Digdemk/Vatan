@@ -4,10 +4,27 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Vatan.Migrations
 {
-    public partial class areamove : Migration
+    public partial class hsfhfksf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AdminMenus",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Route = table.Column<string>(type: "text", nullable: true),
+                    IconName = table.Column<string>(type: "text", nullable: true),
+                    Isdeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    AddDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdminMenus", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
@@ -248,6 +265,9 @@ namespace Vatan.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AdminMenus");
+
             migrationBuilder.DropTable(
                 name: "Comments");
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,13 +13,13 @@ using Vatan.Areas.Admin.Models.VM;
 namespace Vatan.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly VatanContext _vatancontext;
 
-        public ProductController(VatanContext vatanContext)
+        public ProductController(VatanContext vatancontext, IMemoryCache memoryCache) : base(vatancontext, memoryCache)
         {
-            _vatancontext = vatanContext;
+            _vatancontext = vatancontext;
         }
 
         public IActionResult Index()

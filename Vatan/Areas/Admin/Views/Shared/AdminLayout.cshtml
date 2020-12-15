@@ -65,26 +65,29 @@
             <div class="sidebar-heading">
                 Interface
             </div>
+            @foreach (var item in ViewBag.menu)
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="@item.Route" data-toggle="collapse" data-target="#@item.Name"
+                       aria-expanded="true" aria-controls="@item.Name">
+                        <i class="@item.IconName" aria-hidden="true"></i>
+                        <span>@item.Name</span>
+                    </a>
+                    <div id="@item.Name" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Components:</h6>
+                            <a class="collapse-item" href="@item.Route">    <i class="fas fa-list"></i>   List @item.Name</a>
+                            <a class="collapse-item" href="@item.Route/add">  <i class="fas fa-plus"></i> Add @item.Name</a>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/Admin/category" data-toggle="collapse" data-target="#category"
-                   aria-expanded="true" aria-controls="category">
-                    <i class="fa fa-list-alt" aria-hidden="true"></i>
-                    <span>Categories</span>
-                </a>
-                <div id="category" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="/Admin/category">    <i class="fas fa-list"></i>   List Category</a>
-                        <a class="collapse-item" href="/Admin/category/add">  <i class="fas fa-plus"></i> Add Category</a>
 
-
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            }
+            <!-- Nav Item - Pages Collapse Menu -->
 
-            <li class="nav-item">
+
+            <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/product" data-toggle="collapse" data-target="#product"
                    aria-expanded="true" aria-controls="product">
                     <i class="fab fa-product-hunt"></i>
@@ -99,10 +102,10 @@
 
                     </div>
                 </div>
-            </li>
+            </li>-->
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="/Admin/User" data-toggle="collapse" data-target="#user"
                    aria-expanded="true" aria-controls="user">
                     <i class="fas fa-user"></i>
@@ -133,7 +136,7 @@
 
                     </div>
                 </div>
-            </li>
+            </li>-->
 
 
             <!-- Divider -->

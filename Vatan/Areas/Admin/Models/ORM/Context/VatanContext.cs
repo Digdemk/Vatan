@@ -22,7 +22,7 @@ namespace Vatan.Areas.Admin.Models.ORM.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-
+        public DbSet<AdminMenu> AdminMenus { get; set; }
 
 
 

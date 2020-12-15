@@ -19,6 +19,33 @@ namespace Vatan.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.AdminMenu", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<DateTime>("AddDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("IconName")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Isdeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Route")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("AdminMenus");
+                });
+
             modelBuilder.Entity("Vatan.Areas.Admin.Models.ORM.Entities.Basket", b =>
                 {
                     b.Property<int>("ID")

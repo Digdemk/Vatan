@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,14 @@ using Vatan.Areas.Admin.Models.VM;
 namespace Vatan.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CommentController : Controller
+    public class CommentController : BaseController
     {
         private readonly VatanContext _vatancontext;
 
-        public CommentController(VatanContext vatanContext)
+        public CommentController(VatanContext vatancontext, IMemoryCache memoryCache) : base(vatancontext, memoryCache)
         {
-            _vatancontext = vatanContext;
+            _vatancontext = vatancontext;
         }
-
         public IActionResult Index()
         {
             List<CommentVM> model = _vatancontext.Comments.Where(q => q.Isdeleted == false).Include(q=> q.User).Include(q=> q.Product).Select(q => new CommentVM()

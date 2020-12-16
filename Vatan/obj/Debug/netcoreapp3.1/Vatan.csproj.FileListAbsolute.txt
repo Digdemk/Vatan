@@ -1378,3 +1378,4 @@ C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vat
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.pdb
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUser\Index.cshtml.g.cs

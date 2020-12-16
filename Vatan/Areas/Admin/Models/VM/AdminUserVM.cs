@@ -18,9 +18,11 @@ namespace Vatan.Areas.Admin.Models.VM
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Şifre tekrar alanı boş geçilemez")]
-        [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor")]
-        [Display(Name = "Şifre tekrar")]
+        [Required(ErrorMessage = "Please confirm your password!")]
+        [Compare("Password", ErrorMessage = "Please enter the same password!")]
+        [Display(Name = "Confirm Password")]
         public string Confirmpassword { get; set; }
+
+        public DateTime Lastlogindate { get; set; }
     }
 }

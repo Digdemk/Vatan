@@ -23,6 +23,7 @@ namespace Vatan.Areas.Admin.Models.ORM.Context
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<AdminMenu> AdminMenus { get; set; }
+        public DbSet<AdminUser> AdminUsers { get; set; }
 
 
 

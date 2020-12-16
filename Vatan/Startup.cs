@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,7 +36,14 @@ namespace Vatan
             services.AddDbContext<VatanContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSession();
             services.AddMemoryCache();
+            services.AddResponseCaching();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+       .AddCookie(options =>
+       {
+           options.LoginPath = "/Admin/Login/Index/";
+       }); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +56,11 @@ namespace Vatan
 
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseSession();
 
+
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapAreaControllerRoute(

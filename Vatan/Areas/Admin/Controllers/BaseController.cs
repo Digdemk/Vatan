@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -10,7 +11,8 @@ using Vatan.Areas.Admin.Models.ORM.Entities;
 
 namespace Vatan.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+
+    [Authorize]
     public class BaseController : Controller
     {
         private readonly VatanContext _vatancontext;
@@ -20,6 +22,8 @@ namespace Vatan.Areas.Admin.Controllers
         {
             _vatancontext = vatancontext;
             _memoryCache = memoryCache;
+
+
         }
 
 
@@ -41,6 +45,10 @@ namespace Vatan.Areas.Admin.Controllers
             }
 
             ViewBag.menu = menu;
+            base.OnActionExecuting(context);
+
+            ViewBag.email = HttpContext.User.Claims.ToArray()[0].Value;
+
             base.OnActionExecuting(context);
         }
 

@@ -9,13 +9,13 @@ namespace Vatan.Areas.Admin.Models.VM
     public class AdminUserVM
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "EMail alanı boş geçilemez")]
+        [Required(ErrorMessage = "Email is required!")]
         public string EMail { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        [Required(ErrorMessage = "Şifre alanı boş geçilemez")]
-        [Display(Name = "Şifre")]
+        [Required(ErrorMessage = "Password is required!")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Şifre tekrar alanı boş geçilemez")]

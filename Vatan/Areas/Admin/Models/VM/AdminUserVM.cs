@@ -10,8 +10,15 @@ namespace Vatan.Areas.Admin.Models.VM
     {
         public int ID { get; set; }
         [Required(ErrorMessage = "Email is required!")]
+        [Display(Name = "Email")]
+
         public string EMail { get; set; }
+        [Display(Name = "First Name")]
+
         public string Name { get; set; }
+
+        [Display(Name = "Last Name")]
+
         public string Surname { get; set; }
 
         [Required(ErrorMessage = "Password is required!")]

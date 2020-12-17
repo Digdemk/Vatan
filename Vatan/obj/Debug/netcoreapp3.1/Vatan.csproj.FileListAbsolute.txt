@@ -1379,3 +1379,8 @@ C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vat
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUser\Index.cshtml.g.cs
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUser\Add.cshtml.g.cs
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUser\Partial\AdminUserForm.cshtml.g.cs
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Error\Index.cshtml.g.cs
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\dgdm_\OneDrive\Masaüstü\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs

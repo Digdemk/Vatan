@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vatan.Areas.Admin.Models.Attributes;
+using Vatan.Areas.Admin.Models.Enums;
 using Vatan.Areas.Admin.Models.ORM.Context;
 using Vatan.Areas.Admin.Models.ORM.Entities;
 using Vatan.Areas.Admin.Models.VM;
@@ -19,6 +21,8 @@ namespace Vatan.Areas.Admin.Controllers
         {
             _vatancontext = vatancontext;
         }
+        [RoleControl(EnumRoles.CategoryList)]
+        //[Route("/KategoriListeleme")]
         public IActionResult Index()
         {
             List<CategoryVM> model = _vatancontext.Categories.Where(q => q.Isdeleted == false).Select(q => new CategoryVM()
@@ -33,6 +37,8 @@ namespace Vatan.Areas.Admin.Controllers
             return View(model);
             
         }
+
+        [RoleControl(EnumRoles.CategoryAdd)]
 
         public IActionResult Add()
         {

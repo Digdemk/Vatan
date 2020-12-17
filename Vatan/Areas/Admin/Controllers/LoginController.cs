@@ -40,6 +40,9 @@ namespace Vatan.Areas.Admin.Controllers
                  {
                 new Claim(ClaimTypes.Name, model.EMail),
 
+                     new Claim(ClaimTypes.Role,adminuser.Roles)
+
+
                  };
 
                     var userIdentity = new ClaimsIdentity(claims, "login");

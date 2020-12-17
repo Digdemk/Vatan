@@ -22,7 +22,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- 
+
     <!-- Core plugin JavaScript-->
     <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -40,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Admin">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -85,8 +85,6 @@
                 </li>
             }
             <!-- Nav Item - Pages Collapse Menu -->
-
-
             <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/product" data-toggle="collapse" data-target="#product"
                    aria-expanded="true" aria-controls="product">
@@ -103,40 +101,39 @@
                     </div>
                 </div>
             </li>-->
-
             <!-- Nav Item - Utilities Collapse Menu -->
-            <!--<li class="nav-item">
-                <a class="nav-link collapsed" href="/Admin/User" data-toggle="collapse" data-target="#user"
-                   aria-expanded="true" aria-controls="user">
-                    <i class="fas fa-user"></i>
-                    <span>User</span>
-                </a>
-                <div id="user" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="/Admin/User"><i class="fas fa-list"></i>   List User</a>
-                        <a class="collapse-item" href="/Admin/User/add">  <i class="fas fa-plus"></i>  Add User</a>
+            @*<li class="nav-item">
+                    <a class="nav-link collapsed" href="/Admin/User" data-toggle="collapse" data-target="#user"
+                       aria-expanded="true" aria-controls="user">
+                        <i class="fas fa-user"></i>
+                        <span>User</span>
+                    </a>
+                    <div id="user" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Utilities:</h6>
+                            <a class="collapse-item" href="/Admin/User"><i class="fas fa-list"></i>   List User</a>
+                            <a class="collapse-item" href="/Admin/User/add">  <i class="fas fa-plus"></i>  Add User</a>
 
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/Admin/comment" data-toggle="collapse" data-target="#comment"
-                   aria-expanded="true" aria-controls="comment">
-                    <i class="fas fa-comment"></i>
-                    <span>Comments</span>
-                </a>
-                <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="/Admin/comment">    <i class="fas fa-list"></i>   List comment</a>
-                        <a class="collapse-item" href="/Admin/comment/add">  <i class="fas fa-plus"></i> Add comment</a>
+                </li>*@
+            @*<li class="nav-item">
+                    <a class="nav-link collapsed" href="/Admin/AdminUser" data-toggle="collapse" data-target="#comment"
+                       aria-expanded="true" aria-controls="comment">
+                        <i class="fas fa-comment"></i>
+                        <span>Comments</span>
+                    </a>
+                    <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Components:</h6>
+                            <a class="collapse-item" href="/Admin/AdminUser">    <i class="fas fa-list"></i>   List comment</a>
+                            <a class="collapse-item" href="/Admin/AdminUser/add">  <i class="fas fa-plus"></i> Add comment</a>
 
 
+                        </div>
                     </div>
-                </div>
-            </li>-->
+                </li>*@
 
 
             <!-- Divider -->
@@ -374,7 +371,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                 @RenderBody()
+                    @RenderBody()
 
                 </div>
                 <!-- /.container-fluid -->
@@ -421,8 +418,9 @@
         </div>
     </div>
 
- 
+
 
 </body>
-
+@RenderSection("Scripts", false)
 </html>
+

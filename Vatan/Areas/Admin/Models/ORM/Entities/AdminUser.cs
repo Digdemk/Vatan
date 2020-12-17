@@ -12,5 +12,7 @@ namespace Vatan.Areas.Admin.Models.ORM.Entities
         public string Surname { get; set; }
         public string Password { get; set; }
         public DateTime Lastlogindate { get; set; }
+        public string Roles { get; set; }
+
     }
 }

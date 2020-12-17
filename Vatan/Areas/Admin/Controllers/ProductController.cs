@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Vatan.Areas.Admin.Models.Attributes;
+using Vatan.Areas.Admin.Models.Enums;
 using Vatan.Areas.Admin.Models.ORM.Context;
 using Vatan.Areas.Admin.Models.ORM.Entities;
 using Vatan.Areas.Admin.Models.VM;
@@ -21,6 +23,9 @@ namespace Vatan.Areas.Admin.Controllers
         {
             _vatancontext = vatancontext;
         }
+        [RoleControl(EnumRoles.ProductList)]
+        //[Route("/UrunListeleme")]
+
 
         public IActionResult Index()
         {
@@ -41,6 +46,11 @@ namespace Vatan.Areas.Admin.Controllers
             return View(movies);
 
         }
+
+        [RoleControl(EnumRoles.ProductAdd)]
+        
+
+
         public IActionResult Add()
         {
             ProductVM model = new ProductVM();
@@ -160,6 +170,7 @@ namespace Vatan.Areas.Admin.Controllers
 
             return Json("Product Successfully Deleted!");
         }
+        //[Route("/UrunEdit")]
 
         public IActionResult Edit(int id)
         {

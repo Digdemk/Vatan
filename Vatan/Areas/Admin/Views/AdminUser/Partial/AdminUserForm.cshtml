@@ -1,0 +1,44 @@
+﻿@model AdminUserVM
+
+
+   
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                @*<input type="text" class="form-control form-control-user" id="exampleFirstName"
+        placeholder="First Name">*@
+                @Html.LabelFor(q => q.Name, new { @class = "text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.Name, new { @placeholder = "Enter Your First Name *", @class = "form-control", @id = "name" })
+                @Html.ValidationMessageFor(q => q.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-6">
+                @*<input type="text" class="form-control form-control-user" id="exampleLastName"
+                       placeholder="Last Name">*@
+                @Html.LabelFor(q => q.Surname, new { @class = "text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Enter Your Last Name *", @class = "form-control", @id = "surname" })
+                @Html.ValidationMessageFor(q => q.Surname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*<input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                   placeholder="Email Address">*@
+            @Html.LabelFor(q => q.EMail, new { @class = " text-left control-label col-form-label" })
+            @Html.TextBoxFor(q => q.EMail, new { @placeholder = "Enter Your Email *", @class = "form-control", @id = "fname", @type = "email" })
+            @Html.ValidationMessageFor(q => q.EMail, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                @*<input type="password" class="form-control form-control-user"
+                       id="exampleInputPassword" placeholder="Password">*@
+                @Html.LabelFor(q => q.Password, new { @class = "text-left control-label col-form-label" })
+                @Html.PasswordFor(q => q.Password, new { @placeholder = "Create Your Password *", @class = "form-control", @id = "password" })
+                @Html.ValidationMessageFor(q => q.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-6">
+                @*<input type="password" class="form-control form-control-user"
+                       id="exampleRepeatPassword" placeholder="Repeat Password">*@
+                @Html.LabelFor(q => q.Confirmpassword, new { @class = "text-left control-label col-form-label" })
+                @Html.PasswordFor(q => q.Confirmpassword, new { @placeholder = "Confirm Your Password *", @class = "form-control", @id = "cfpassword" })
+                @Html.ValidationMessageFor(q => q.Confirmpassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   

@@ -3,18 +3,18 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
-@model List<Vatan.Areas.Admin.Models.VM.ProductVM>
+@model List<ProductVM>
 
 
 <div class="container-fluid">
 
     <!-- Page Heading -->
     @*<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>*@
+        <p class="mb-4">
+            DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                                                                       href="https://datatables.net">official DataTables documentation</a>.
+        </p>*@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -46,43 +46,43 @@
                         @foreach (var item in Model)
                         {
 
-                        <tr id="@item.ID">
+                            <tr id="@item.ID">
 
-                            <td>@item.ID</td>
-                            <td>
-                                @foreach (var item2 in item.MainImagePath)
-                                {
-                                    <img width="200" height="100" src="../../productimage/@item2" alt="Alternate Text" />
-                                }
-                            </td>
+                                <td>@item.ID</td>
+                                <td>
+                                    @foreach (var item2 in item.MainImagePath)
+                                    {
+                                        <img width="200" height="100" src="../../productimage/@item2" alt="Alternate Text" />
+                                    }
+                                </td>
 
-                            
-                            <td>@item.ProductName</td>
-                            <td>@item.Description</td>
-                            <td>@item.Quantity</td>
-                            <td>@item.Price</td>
 
-                            <td>
-                                @foreach (var item2 in item.categories)
-                                {
-                                    <span>@item2.CategoryName/</span>
-                                }
+                                <td>@item.ProductName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price</td>
 
-                            </td>
-                            <td>
-                                <button class="btn btn-outline-primary detay" id="@item.ID">
-                                    <i class="material-icons">description</i>
-                                </button>
-                            </td>
-                            <td>
-                                <a href="/Admin/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
-                            </td>
-                            <td>
+                                <td>
+                                    @foreach (var item2 in item.categories)
+                                    {
+                                        <span>@item2.CategoryName/</span>
+                                    }
 
-                                <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
-                            </td>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-primary detay" id="@item.ID">
+                                        <i class="material-icons">description</i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <a href="/Admin/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
+                                </td>
+                                <td>
 
-                        </tr>
+                                    <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
+                                </td>
+
+                            </tr>
                         }
 
                     </tbody>
@@ -101,7 +101,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-           
+
             <div class="modal-body">
                 <div>
                     <span>Name:</span>
@@ -119,7 +119,7 @@
                     <span>Phone:</span>
                     <span id="Price"></span>
                 </div>
-             
+
                 <div>
                     <span>Categories:</span>
                     <ul id="categories">
@@ -134,13 +134,15 @@
     </div>
 </div>
 
+@section Scripts
+{
 
-<!-- Page level plugins -->
-<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="/js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="/js/demo/datatables-demo.js"></script> }
 
 
 <script>
@@ -153,7 +155,7 @@
                 type: "POST",
                 data: { id: id },
                 success: function (msg) {
-                   
+
                     $("#" + id).fadeOut();
                 },
                 error: function (err) {
@@ -161,10 +163,10 @@
                 }
             })
         }
-        
+
     })
 
-    
+
 
 
 
@@ -180,7 +182,7 @@
                 $("#Description").html(result.description);
                 $("#Quantity").html(result.quantity);
                 $("#Price").html(result.price);
-          
+
 
 
                 $("#categories li").remove();
@@ -189,9 +191,9 @@
 
 
                     $("#categories").append(`
-                          <li>`+ result.categories[i].categoryName + `</li>
+                              <li>`+ result.categories[i].categoryName + `</li>
 
-                         `);
+                             `);
                 }
 
                 $("#detailmodal").modal();

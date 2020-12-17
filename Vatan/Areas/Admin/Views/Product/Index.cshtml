@@ -27,6 +27,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Picture</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Quantity</th>
@@ -46,6 +47,8 @@
                         {
 
                         <tr id="@item.ID">
+
+                            <td>@item.ID</td>
                             <td>
                                 @foreach (var item2 in item.MainImagePath)
                                 {
@@ -53,33 +56,33 @@
                                 }
                             </td>
 
-                                <td>@item.ID</td>
-                                <td>@item.ProductName</td>
-                                <td>@item.Description</td>
-                                <td>@item.Quantity</td>
-                                <td>@item.Price</td>
+                            
+                            <td>@item.ProductName</td>
+                            <td>@item.Description</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price</td>
 
-                                <td>
-                                    @foreach (var item2 in item.categories)
-                                    {
-                                        <span>@item2.CategoryName/</span>
-                                    }
+                            <td>
+                                @foreach (var item2 in item.categories)
+                                {
+                                    <span>@item2.CategoryName/</span>
+                                }
 
-                                </td>
-                                <td>
-                                    <button class="btn btn-outline-primary detay" id="@item.ID">
-                                        <i class="material-icons">description</i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="/Admin/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
-                                </td>
-                                <td>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary detay" id="@item.ID">
+                                    <i class="material-icons">description</i>
+                                </button>
+                            </td>
+                            <td>
+                                <a href="/Admin/Product/Edit/@item.ID"><button class="btn btn-outline-success">Edit</button></a>
+                            </td>
+                            <td>
 
-                                    <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
-                                </td>
+                                <button class="btn btn-outline-danger delete" id="@item.ID">Delete</button>
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
 
                     </tbody>

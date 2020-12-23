@@ -43,7 +43,7 @@ namespace Vatan.Areas.Admin.Controllers
         public IActionResult Add()
         {
             CategoryVM model = new CategoryVM();
-            model.categories = _vatancontext.Categories.ToList();
+            model.categories = _vatancontext.Categories.Where(q=>q.TopCategoryID<1).ToList();
         
             return View(model);
 

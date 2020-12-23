@@ -18,7 +18,7 @@
                 
                         <label for="Categories">Categories</label>
                         <select class="form-control selectpicker" data-style="btn btn-link" name="categoryid" id="Categories">
-
+                            <option value="0">Kategori Seçin</option>
                             @foreach (var item in Model.categories)
                             {
                                 <option value="@item.ID">@item.CategoryName</option>

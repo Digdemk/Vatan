@@ -1830,3 +1830,10 @@ C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Vatan.genruntimeconfig.cache
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Layout.cshtml.g.cs
 C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Products\Detail.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Products\Category.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Anasayfa.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Anasayfa\Index.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Add.cshtml.g.cs
+C:\Users\User\Desktop\MVC\Yeni klasör\Vatan\Vatan\Vatan\obj\Debug\netcoreapp3.1\Razor\Views\Partial\Header.cshtml.g.cs

@@ -18,8 +18,7 @@ namespace Vatan.Controllers
         {
             _vatancontext = vatancontext;
         }
-
-        public IActionResult Anasayfa()
+        public IActionResult Index()
         {
             List<ProductVM> movies = _vatancontext.Products.Include(x => x.ProductCategories).Include(q => q.Pictures).Where(q => q.Isdeleted == false).Select(q => new ProductVM()
             {

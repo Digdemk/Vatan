@@ -63,21 +63,15 @@ namespace Vatan
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAreaControllerRoute(
-                   name: "Admin",
-                   areaName: "Admin",
-                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                   );
                 endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                    name: "Admin",
+                    areaName: "Admin",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
                 endpoints.MapRazorPages();
-
-                
-
-
-
-
             });
-        
+
         }
     }
 }
